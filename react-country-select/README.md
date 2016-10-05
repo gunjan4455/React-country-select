@@ -1,8 +1,7 @@
 # react-country-select
 
-[![Travis][build-badge]][build]
 [![npm package][npm-badge]](https://www.npmjs.com/package/react-country-select)
-[![Coveralls][coveralls-badge]][coveralls]
+
 
 # Project Title
 
