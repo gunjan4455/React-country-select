@@ -15,7 +15,7 @@ Live Demo at : https://gunjan4455.github.io
 
 Component which is often use in react-forms. Gives dropdown of all the countries with their flag icon.
 
-## Getting Started
+## Dependency
 
 react-select
 ```
