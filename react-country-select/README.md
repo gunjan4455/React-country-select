@@ -33,18 +33,19 @@ This will give you all the flag icons used in the dropdown. Save the flags folde
 ```
 npm install react-country-select --save
 
-import CountrySelect from "react-country-select"
 ```
 
 #### Parameters :
-```
+
 ##### Mandatory parameter
+```
 
 flagImagePath="path to your folder containing all flag icons"
 
 onSelect={function which will return options selected}
-
+```
 ##### Not Mandatory
+```
 
 multi={false} //for single selection
 multi={true} //for multiple selection
