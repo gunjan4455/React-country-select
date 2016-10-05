@@ -3,32 +3,42 @@
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
+# Project Title
+
+React-country-select
+
+## Demo
 
 Live Demo at : https://gunjan4455.github.io
 
-Component which is often use in react-forms. 
+## Getting Started
 
-Gives listing of all the countries with their flag icon.
+Component which is often use in react-forms. Gives dropdown of all the countries with their flag icon.
 
-Dependency : react-select
+## Getting Started
 
+react-select
+```
 npm install react-select --save
+```
 
-Use it as : 
- 
+### Installing 
+``` 
 npm install react-country-select --save
 
 import CountrySelect from "react-country-select"
+```
 
-To use single select : Just use the component
-
-2 parameters:
-
+#### Parameters :
+```
 multi={true} //not mandatory it is false by default
 
-flagImagePath="<path to your folder containing all flag icons>"
-
+flagImagePath="path to your folder containing all flag icons"
+```
+### Example
+```
 <CountrySelect multi={true} flagImagePath="./assets/">
+```
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo
