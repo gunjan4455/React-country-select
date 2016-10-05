@@ -1,7 +1,8 @@
 # react-country-select
 
-[![npm package][npm-badge]](https://www.npmjs.com/package/react-country-select)
-
+[![Travis][build-badge]][build]
+[![npm package][npm-badge]][npm](https://www.npmjs.com/package/react-country-select)
+[![Coveralls][coveralls-badge]][coveralls]
 
 # Project Title
 
@@ -21,9 +22,15 @@ react-select
 ```
 npm install react-select --save
 ```
+####You need to download all the flag icons
 
-### Installing 
-``` 
+You can either download zip from https://github.com/gunjan4455/FlagIcons
+or git clone https://github.com/gunjan4455/FlagIcons.git
+
+This will give you all the flag icons used in the dropdown. Save the flags folder in your public folder.
+
+### Installing
+```
 npm install react-country-select --save
 
 import CountrySelect from "react-country-select"
@@ -31,13 +38,51 @@ import CountrySelect from "react-country-select"
 
 #### Parameters :
 ```
-multi={true} //not mandatory it is false by default
+##### Mandatory parameter
 
 flagImagePath="path to your folder containing all flag icons"
+
+onSelect={function which will return options selected}
+
+##### Not Mandatory
+
+multi={false} //for single selection
+multi={true} //for multiple selection
+
+By default it is single selection mode
 ```
 ### Example
 ```
-<CountrySelect multi={true} flagImagePath="./assets/">
+import React, {Component} from "react";
+import CountrySelect from "react-country-select";
+
+export default class App extends Component {
+    propTypes : {
+        onSelect: React.PropTypes.func
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            tag: null,
+        };
+        this.onSelect = this.onSelect.bind(this);
+    }
+
+    onSelect(val) {
+      console.log("values selected are:", val);
+      //you can handle options selected here.
+    }
+
+    render() {
+        return (
+            <div>
+              <CountrySelect multi={true} flagImagePath="./assets/flags/" onSelect={this.onSelect}/>
+            </div>
+        );
+    }
+}
+
 ```
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
