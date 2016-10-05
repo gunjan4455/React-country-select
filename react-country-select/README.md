@@ -1,7 +1,7 @@
 # react-country-select
 
 [![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm](https://www.npmjs.com/package/react-country-select)
+[![npm package][npm-badge]](https://www.npmjs.com/package/react-country-select)
 [![Coveralls][coveralls-badge]][coveralls]
 
 # Project Title
@@ -14,7 +14,7 @@ Live Demo at : https://gunjan4455.github.io
 
 ## Getting Started
 
-Component which is often use in react-forms. Gives dropdown of all the countries with their flag icon.
+Component which is often use in react-forms. Gives dropdown of all the countries with their flag icons.
 
 ## Dependency
 
@@ -25,6 +25,7 @@ npm install react-select --save
 ####You need to download all the flag icons
 
 You can either download zip from https://github.com/gunjan4455/FlagIcons
+
 or git clone https://github.com/gunjan4455/FlagIcons.git
 
 This will give you all the flag icons used in the dropdown. Save the flags folder in your public folder.
