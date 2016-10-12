@@ -7,6 +7,15 @@ module.exports = {
             externals: {
                 react: 'React'
             }
+        },
+
+        webpack: {
+            module: {
+                loaders: [{
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
+                }]
+            }
         }
     }
 }

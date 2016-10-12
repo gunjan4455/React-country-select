@@ -22,9 +22,9 @@ npm install react-select --save
 ```
 ####You need to download all the flag icons
 
-You can either download zip from https://github.com/gunjan4455/FlagIcons
+You can either download zip from https://github.com/gunjan4455/Flagicons
 
-or git clone https://github.com/gunjan4455/FlagIcons.git
+or git clone https://github.com/gunjan4455/Flagicons.git
 
 This will give you all the flag icons used in the dropdown. Save the flags folder in your public folder.
 

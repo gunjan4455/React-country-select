@@ -5,6 +5,7 @@ import "react-select/dist/react-select.css"
 import {countries} from './data'
 
 export default class ReactCountrySelect extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -21,6 +22,9 @@ export default class ReactCountrySelect extends Component {
 
     logChange(val) {
         this.setState({tag: val});
+        if (typeof this.props.onSelect === 'function') {
+            this.props.onSelect(val);
+        }
     }
 
     CountryOptionRenderer(option) {
