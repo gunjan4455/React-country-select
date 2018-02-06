@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "react-select": "^1.0.0-rc.2",
-     "style-loader": "^0.13.1",
+    "style-loader": "^0.13.1",
     "css-loader": "^0.23.1"
   },
   "peerDependencies": {
@@ -42,7 +42,7 @@
     "test": "tests"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/gunjan4455/React-country-select"
-}
+    "type": "git",
+    "url": "https://github.com/gunjan4455/React-country-select"
+  }
 }
