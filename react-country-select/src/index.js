@@ -12,7 +12,7 @@ export default class ReactCountrySelect extends Component {
                 width: 30,
                 height: 15
             },
-            tag: null
+            tag: this.props.defaultValue || null
         };
         this.logChange = this.logChange.bind(this);
         this.CountryRenderValue = this.CountryRenderValue.bind(this);
