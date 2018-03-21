@@ -16,13 +16,16 @@ export default class Demo extends Component {
   render() {
     return <div>
       <h3><strong>React-country-select</strong></h3>
-      <br></br>
+      <br />
       <div>
-      <h4><i>Single select</i></h4>
-      <SelectComponent multi={false} flagImagePath="./assets/" onSelect={this.onSelect}/>
-      <br></br>
-      <h4><i>Multiple select</i></h4>
-      <SelectComponent multi={true} flagImagePath="./assets/" onSelect={this.onSelect}/>
+        <h4><i>Single select</i></h4>
+        <SelectComponent multi={false} flagImagePath="./assets/" onSelect={this.onSelect}/>
+        <br />
+        <h4><i>Multiple select</i></h4>
+        <SelectComponent multi={true} flagImagePath="./assets/" onSelect={this.onSelect}/>
+        <br />
+        <h4><i>Without flags</i></h4>
+        <SelectComponent onSelect={this.onSelect}/>
       </div>
     </div>
   }

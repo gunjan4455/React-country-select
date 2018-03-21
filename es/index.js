@@ -4,7 +4,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import React, { Component, PropTypes as t } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import Select from "react-select";
 import "react-select/dist/react-select.css";
@@ -39,31 +40,42 @@ var ReactCountrySelect = function (_Component) {
     };
 
     ReactCountrySelect.prototype.CountryOptionRenderer = function CountryOptionRenderer(option) {
-        var flagImageUrl = this.props.flagImagePath + option.value + '.png';
-        var optionStyle = {
-            width: 50,
-            height: 30
-        };
+        if (this.props.flagImagePath) {
+            var _flagImageUrl = this.props.flagImagePath + option.value + '.png';
+            var _optionStyle = {
+                width: 50,
+                height: 30
+            };
+        }
+
         return React.createElement(
             'span',
             { style: {
                     color: option.color
                 } },
-            React.createElement('img', { src: flagImageUrl, style: optionStyle }),
+            this.props.flagImagePath && React.createElement('img', { src: flagImageUrl, style: optionStyle }),
             '\xA0 ',
             option.label
         );
     };
 
     ReactCountrySelect.prototype.CountryRenderValue = function CountryRenderValue(option) {
-        var flagImageUrl = this.props.flagImagePath + option.value + '.png';
+        if (this.props.flagImagePath) {
+            var _flagImageUrl2 = this.props.flagImagePath + option.value + '.png';
+        }
+
         if (option.value === undefined) {
             return null;
         } else {
             return React.createElement(
                 'span',
                 null,
-                React.createElement('img', { src: flagImageUrl, style: this.state.imageStyle, alt: '', onError: this.onImageError }),
+                this.props.flagImagePath && React.createElement('img', {
+                    src: flagImageUrl,
+                    style: this.state.imageStyle,
+                    alt: '',
+                    onError: this.onImageError
+                }),
                 '\xA0 ',
                 option.label
             );
@@ -81,7 +93,8 @@ var ReactCountrySelect = function (_Component) {
                 backspaceRemoves: true,
                 onChange: this.logChange,
                 valueRenderer: this.CountryRenderValue,
-                multi: this.props.multi })
+                multi: this.props.multi
+            })
         );
     };
 
@@ -89,3 +102,10 @@ var ReactCountrySelect = function (_Component) {
 }(Component);
 
 export { ReactCountrySelect as default };
+
+
+process.env.NODE_ENV !== "production" ? ReactCountrySelect.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    flagImagePath: PropTypes.string,
+    multi: PropTypes.bool
+} : void 0;

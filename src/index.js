@@ -1,4 +1,5 @@
-import React, {Component, PropTypes as t} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {render} from 'react-dom'
 import Select from "react-select"
 import "react-select/dist/react-select.css"
@@ -28,28 +29,43 @@ export default class ReactCountrySelect extends Component {
     }
 
     CountryOptionRenderer(option) {
-        const flagImageUrl = this.props.flagImagePath + option.value + '.png';
-        const optionStyle = {
-            width: 50,
-            height: 30
-        };
+        if (this.props.flagImagePath) {
+            const flagImageUrl = this.props.flagImagePath + option.value + '.png';
+            const optionStyle = {
+                width: 50,
+                height: 30
+            };
+        }
+
         return (
             <span style={{
                 color: option.color
             }}>
-                <img src={flagImageUrl} style={optionStyle}/>&nbsp; {option.label}
+                {this.props.flagImagePath && <img src={flagImageUrl} style={optionStyle}/>}
+                &nbsp; {option.label}
             </span>
         )
     }
 
     CountryRenderValue(option) {
-        const flagImageUrl = this.props.flagImagePath + option.value + '.png';
+        if (this.props.flagImagePath) {
+            const flagImageUrl = this.props.flagImagePath + option.value + '.png';
+        }
+
         if (option.value === undefined) {
             return null;
         } else {
             return (
                 <span>
-                    <img src={flagImageUrl} style={this.state.imageStyle} alt="" onError={this.onImageError}/>&nbsp; {option.label}
+                    {this.props.flagImagePath &&
+                        <img
+                            src={flagImageUrl}
+                            style={this.state.imageStyle}
+                            alt=""
+                            onError={this.onImageError}
+                        />
+                    }
+                    &nbsp; {option.label}
                 </span>
             )
         }
@@ -59,14 +75,21 @@ export default class ReactCountrySelect extends Component {
         return (
             <div>
                 <Select placeholder="Search country.."
-                value={this.state.tag}
-                options={countries}
-                optionRenderer={this.CountryOptionRenderer}
-                backspaceRemoves={true}
-                onChange={this.logChange}
-                valueRenderer={this.CountryRenderValue}
-                multi={this.props.multi}/>
+                    value={this.state.tag}
+                    options={countries}
+                    optionRenderer={this.CountryOptionRenderer}
+                    backspaceRemoves={true}
+                    onChange={this.logChange}
+                    valueRenderer={this.CountryRenderValue}
+                    multi={this.props.multi}
+                />
             </div>
         );
     }
+}
+
+ReactCountrySelect.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    flagImagePath: PropTypes.string,
+    multi: PropTypes.bool,
 }
